@@ -33,7 +33,7 @@ export default function Analyze() {
   const fetchUsage = async () => {
     try {
       setRefreshing(true);
-      const token = await getToken(); // REMOVED { template: 'default' }
+      const token = await getToken();
       
       console.log('=== FETCHING USAGE ===');
       console.log('User metadata from Clerk:', user?.publicMetadata);
@@ -171,13 +171,32 @@ export default function Analyze() {
             <div className="usage-header">
               <div>
                 <p className="usage-plan">
-                  {currentTier === 'premium' ? '✨ Premium Plan' : '🆓 Free Plan'}
+                  {currentTier === 'premium' ? '✨ Premium Plan (Unlimited)' : '🆓 Free Plan'}
                 </p>
                 <p className="usage-stats">
-                  Usage: {currentUsage}/{currentTier === 'premium' ? '∞' : usageLimit} analyses (Unlimited)
+                  Usage: {currentUsage}/{currentTier === 'premium' ? '∞' : usageLimit} analyses
                 </p>
               </div>
               <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                {/* UPGRADE BUTTON ADDED HERE */}
+                {currentTier === 'free' && currentUsage >= 1 && (
+                  <button 
+                    onClick={() => window.alert('Upgrade to Premium to get unlimited analyses!')}
+                    style={{
+                      padding: '8px 16px',
+                      backgroundColor: '#fff',
+                      color: '#667eea',
+                      border: 'none',
+                      borderRadius: '6px',
+                      fontWeight: 'bold',
+                      cursor: 'pointer',
+                      boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                    }}
+                  >
+                    🚀 Upgrade Now
+                  </button>
+                )}
+                
                 {currentTier === 'free' && currentUsage >= 1 && (
                   <div className="usage-warning">
                     ⚠️ Limit Reached
