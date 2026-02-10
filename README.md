@@ -340,7 +340,7 @@ ai-vision-service/
 
 ## Contact
 
-**Developer:** Juthamard Jirapanyalerd
+**Developer:** Juthamard Jirapanyalerd  
 **Email:** jjaytnn@gmail.com  
 **GitHub:** [github.com/jjayytm](https://github.com/jjayytm)  
 **LinkedIn:** [linkedin.com/in/jjaytm](https://www.linkedin.com/in/jjaytm/)
